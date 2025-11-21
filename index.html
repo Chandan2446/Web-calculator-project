@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Calculetor</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+            
+        } */
+        body{
+            height: 70vh;
+            
+            
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            background-color:rgb(52, 50, 50);
+
+        }
+        .box{
+            
+            margin-top: 120px;
+            border: 1px solid;
+            padding: 20px;
+            border-radius: 10px;
+            background: transparent;
+
+
+        }
+
+        input{
+            width: 320px;
+            border: none;
+            padding: 30px;
+            margin: 20px;
+            background: transparent;
+            box-shadow: 2px 3px 15px rgb(13, 161, 112);
+            text-align: right;
+            font-size: 40px;
+            color: rgb(240, 236, 229);
+            cursor: pointer;
+
+        
+
+
+        }
+        input::placeholder{
+            color: white;
+        }
+        button{
+            border: none;
+            height: 60px;
+            width: 80px;
+            margin: 10px;
+            border-radius: 10px;
+            background: transparent;
+            color: white;
+            font-size: 20px;
+            box-shadow: 2px 3px 15px rgb(13, 161, 112);
+            cursor: pointer;
+        }
+
+        .oparetor{
+            background-color: orange;
+        }
+
+        .color{
+            color: aquamarine;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" id="display" placeholder="0">
+        <div>
+            <button class="color" onclick="clearall()">AC</button>
+            <BUTTON class="color" onclick="deletenode()">C</BUTTON>
+            <button class="color" onclick="press('00')">00</button>
+            <BUTTON class="color" onclick="press('/')">/</BUTTON>
+
+
+        </div>
+        <div>
+            <button onclick="press('7')">7</button>
+            <BUTTON onclick="press('8')">8</BUTTON>
+            <button onclick="press('9')">9</button>
+            <BUTTON class="color" onclick="press('*')">*</BUTTON>
+
+
+        </div>
+        <div>
+            <button onclick="press('4')">4</button>
+            <BUTTON onclick="press('5')">5</BUTTON>
+            <button onclick="press('6')">6</button>
+            <BUTTON class="color" onclick="press('-')">-</BUTTON>
+
+
+        </div>
+        <div>
+            <button onclick="press('1')">1</button>
+            <BUTTON onclick="press('2')">2</BUTTON>
+            <button onclick="press('3')">3</button>
+            <BUTTON class="color" onclick="press('+')">+</BUTTON>
+
+
+        </div>
+        <div>
+            <button class="color" onclick="press('%')">%</button>
+            <BUTTON onclick="press('0')">0</BUTTON>
+            <button class="color" onclick="press('.')">.</button>
+            <BUTTON class="oparetor" onclick="calculate()">=</BUTTON>
+
+
+        </div>
+    </div>
+    <script>
+        let display=document.getElementById('display');
+
+        function press(value){
+            display.value+=value;
+        }
+
+        function clearall(){
+            display.value="";
+        }
+
+        function deletenode(){
+            display.value=display.value.slice(0,-1);
+        }
+
+        function calculate(){
+            try{
+                display.value=eval(display.value);
+            }catch{
+                display.value="Error";
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
